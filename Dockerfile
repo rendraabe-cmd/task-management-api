@@ -25,7 +25,13 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Copy existing application directory
-COPY . /var/www
+COPY COPY docker/aiven-ca.pem /etc/ssl/certs/aiven-ca.pem
+RUN chmod 644 /etc/ssl/certs/aiven-ca.pem
+
+# Copy Aiven SSL Certificate
+RUN mkdir -p /etc/ssl/certs
+COPY docker/aiven-ca.pem /etc/ssl/certs/aiven-ca.pem
+RUN chmod 644 /etc/ssl/certs/aiven-ca.pem
 
 # Copy nginx configuration
 COPY docker/nginx.conf /etc/nginx/sites-available/default
