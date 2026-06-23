@@ -3,6 +3,26 @@
 A RESTful API for managing personal tasks, built with Laravel 11 and MySQL.
 Supports authentication, CRUD operations, filtering, searching, and pagination.
 
+## 🌐 Live Demo
+
+**Production URL**: https://task-management-api-6390.onrender.com
+
+> ⚠️ **Note**: First request may take 30-60 seconds (free tier cold start)
+
+### Quick Test Examples
+
+**Register a new user:**
+```bash
+curl -X POST https://task-management-api-6390.onrender.com/api/register \
+  -H "Accept: application/json" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Your Name",
+    "email": "you@example.com",
+    "password": "password123",
+    "password_confirmation": "password123"
+  }'
+  
 ## Tech Stack
 
 - Laravel 11
